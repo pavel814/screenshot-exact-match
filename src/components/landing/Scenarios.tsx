@@ -82,7 +82,7 @@ const scenarios: Scenario[] = [
 
 export function Scenarios() {
   const [active, setActive] = useState(0);
-  const s = scenarios[active];
+  const s = scenarios[active]!;
 
   return (
     <div>

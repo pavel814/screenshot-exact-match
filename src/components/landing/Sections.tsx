@@ -186,7 +186,7 @@ function ToggleList() {
       {names.map((n, i) => (
         <label key={n} className="flex cursor-pointer items-center justify-between px-3.5 py-2.5 text-sm font-medium">
           {n}
-          <Switch checked={s[i]} onCheckedChange={(v) => set((p) => p.map((x, j) => (j === i ? v : x)))} aria-label={`Следить за чатом ${n}`} />
+          <Switch checked={s[i] ?? false} onCheckedChange={(v) => set((p) => p.map((x, j) => (j === i ? v : x)))} aria-label={`Следить за чатом ${n}`} />
         </label>
       ))}
     </div>
@@ -230,7 +230,7 @@ export function BothSides() {
   );
 }
 
-function SideCard({ title, items, delay }: { title: string; items: typeof mine; delay?: number }) {
+function SideCard({ title, items, delay }: { title: string; items: typeof mine; delay?: number | undefined }) {
   const [filter, setFilter] = useState<"open" | "all">("open");
   const shown = filter === "open" ? items.filter((i) => i.s !== "done") : items;
   return (
@@ -298,7 +298,7 @@ export function How() {
   );
 }
 
-function Step({ n, title, text, children, delay }: { n: string; title: string; text: string; children: React.ReactNode; delay?: number }) {
+function Step({ n, title, text, children, delay }: { n: string; title: string; text: string; children: React.ReactNode; delay?: number | undefined }) {
   return (
     <Reveal delay={delay} className="rounded-[20px] border border-border bg-card p-6">
       <div className="bg-product flex min-h-[170px] flex-col justify-center rounded-2xl p-4">{children}</div>
