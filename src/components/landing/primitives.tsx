@@ -8,7 +8,7 @@ export function Reveal({
 }: {
   children: React.ReactNode;
   className?: string;
-  delay?: number;
+  delay?: number | undefined;
 }) {
   const reduce = useReducedMotion();
   return (
